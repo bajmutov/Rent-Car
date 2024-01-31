@@ -2,11 +2,11 @@
 
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
-import Layout from 'components/Layout/Layout';
+import Layout from './Layout';
 
-const Home = lazy(() => import('../../pages/Home/Home'));
-const Catalog = lazy(() => import('../../pages/Catalog/Catalog'));
-const Favorites = lazy(() => import('../../pages/Favorites/Favorites'));
+const Home = lazy(() => import('pages/Home'));
+const Catalog = lazy(() => import('pages/Catalog'));
+const Favourites = lazy(() => import('pages/Favourites'));
 
 export default function App() {
   return (
@@ -14,9 +14,8 @@ export default function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="/catalog" element={<Catalog />} />
-        <Route path="/favorites" element={<Favorites />} />
-        {/* <Route path="*" element={<Error />} /> */}
-        {/* <Route path="*" element={<Home />} /> */}
+        <Route path="/favourites" element={<Favourites />} />
+        <Route path="*" element={<Home />} />
       </Route>
     </Routes>
   );
