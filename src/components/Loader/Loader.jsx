@@ -5,7 +5,7 @@ import { StyledLoaderWrapper } from './Loader.styled';
 const Loader = () => {
   return (
     <StyledLoaderWrapper>
-      <TailSpin color="var(--accent-color)" />
+      <TailSpin color="var(--light-blue-color)" />
     </StyledLoaderWrapper>
   );
 };

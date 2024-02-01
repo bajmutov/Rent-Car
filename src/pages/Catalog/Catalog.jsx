@@ -2,33 +2,18 @@
 // import { carsSelectors } from 'redux/Cars/carsSelectors';
 // import { CarsList, ServiceMessage } from '../../components';
 
+import Button from 'components/Button';
+
 export const Catalog = () => {
-//   const favoriteCars = useSelector(carsSelectors.getFavoriteCars);
-  
-    return (
+  //   const favoriteCars = useSelector(carsSelectors.getFavoriteCars);
+
+  return (
+    <>
       <p>Catalog</p>
-        // <WrapperList>
-        //   {cars.length ? (
-        //     cars.map((favorite, index) => (
-        //       <CarItem key={index} data={favorite} />
-        //     ))
-        //   ) : (
-        //     <Text>Your favorites are currently empty...</Text>
-        //   )}
-        //   {favoriteCars.favorites.length > cars.length && (
-        //     <LoadMore variant="text" onClick={loadMore}>
-        //       Load more
-        //     </LoadMore>
-        //   )}
-      // </WrapperList>
-      
-    // <>
-    //   {!favoriteCars.length ? (
-    //     <ServiceMessage message="there are no selected cars in your list"/>
-    //   ) : (
-    //     <CarsList cars={favoriteCars} />
-    //   )}
-    // </>
+      {/* <Filters /> */}
+      <CarsList />
+      <Button paddingX={99.5}>Load More</Button>
+    </>
   );
 };
 
