@@ -3,9 +3,17 @@
 // import { CarsList, ServiceMessage } from '../../components';
 
 import Button from 'components/Button';
+import CarsList from 'components/CarsList';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchCarsThunk } from '../../redux/cars/carsOperation';
 
 export const Catalog = () => {
   //   const favoriteCars = useSelector(carsSelectors.getFavoriteCars);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchCarsThunk());
+  }, [dispatch]);
 
   return (
     <>

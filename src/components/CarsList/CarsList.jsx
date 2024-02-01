@@ -4,9 +4,10 @@
 // import ContactItem from './ContactItem';
 
 const ContactList = () => {
-  //   const filteredContacts = useSelector(selectFilteredContacts);
+  // const filteredContacts = useSelector(selectFilteredContacts);
 
   return (
+    <p>ContactList</p>
     // <Container width={496} mt={3}>
     //   <List>
     //     {filteredContacts &&
@@ -15,14 +16,15 @@ const ContactList = () => {
     //       ))}
     //   </List>
     // </Container>
-    <div>
-      <ul>
-        {filteredContacts &&
-          filteredContacts.map(({ id, name, number }) => (
-            <ContactItem key={id} id={id} name={name} number={number} />
-          ))}
-      </ul>
-    </div>
+
+    // <div>
+    //   <ul>
+    //     {filteredContacts &&
+    //       filteredContacts.map((car) => (
+    //         <CartItem key={id}  />
+    //       ))}
+    //   </ul>
+    // </div>+
   );
 };
 
