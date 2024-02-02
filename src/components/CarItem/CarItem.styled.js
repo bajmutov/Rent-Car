@@ -22,8 +22,9 @@ export const Image = styled.img`
   border-radius: 14px;
   transition: var(--transition);
 
-  &:hover, &:focus {
-     transform: scale(1.05);
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
   }
 `;
 

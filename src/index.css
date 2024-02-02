@@ -6,7 +6,9 @@
   --white-text-color: #ffffff;
   --dark-blue-color: #0b44cd;
   --light-blue-color: #3470ff;
+  --secondary-black-color: #363535;
   --select-color: #f7f7fb;
+  --alternative-grey-color: rgba(18, 20, 23, 0.5);
   --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -56,4 +58,9 @@ input {
 label {
   margin: 0;
   padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
 }

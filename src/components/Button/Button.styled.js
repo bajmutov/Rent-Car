@@ -1,15 +1,19 @@
 import styled from '@emotion/styled';
 
 export const StylesButton = styled.button`
-// width: 100px;
-border-radius: 12px;
-color: var(--white-text-color);
-background-color: var(--light-blue-color);
-transition: var(--transition);
-padding: ${({ paddingY, paddingX }) => `${paddingY}px ${paddingX}px`};
+  // width: 100px;
+  border-radius: 12px;
+  color: var(--white-text-color);
+  background-color: var(--light-blue-color);
+  padding: ${({ paddingY, paddingX }) => `${paddingY}px ${paddingX}px`};
+  margin: 0 auto;
+  display: block;
+  transition: var(--transition);
 
-&:hover,&:focus {
-  background-color: var(--dark-blue-color);}
+  &:hover,
+  &:focus {
+    background-color: var(--dark-blue-color);
+  }
 `;
 
 // muiStyled(Button)(({ theme, width }) => ({

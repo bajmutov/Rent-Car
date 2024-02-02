@@ -9,28 +9,23 @@ import { WrapperList } from './CarsList.styled';
 // import { selectAllCars } from "redux/cars/carsSelectors";
 
 const CarsList = ({ cars }) => {
-  console.log('cars', cars)
-
   return (
     // <p>ContactList</p>
-    <div>
-      <WrapperList>
+    <WrapperList>
       {cars.map(car => (
         <CarItem key={car.id} car={car} />
       ))}
-      </WrapperList>
-    </div>
+    </WrapperList>
   );
 
-    // <div>
-    //   <ul>
-    //     {filteredContacts &&
-    //       filteredContacts.map((car) => (
-    //         <CartItem key={id}  />
-    //       ))}
-    //   </ul>
-    // </div>+
-  
+  // <div>
+  //   <ul>
+  //     {filteredContacts &&
+  //       filteredContacts.map((car) => (
+  //         <CartItem key={id}  />
+  //       ))}
+  //   </ul>
+  // </div>+
 };
 
 export default CarsList;

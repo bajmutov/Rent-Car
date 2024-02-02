@@ -6,4 +6,5 @@ export const Main = styled.main`
   // flex-wrap: wrap;
   /* max-width: 970px; */
   margin: 0 auto;
+  padding-bottom: 50px;
 `;

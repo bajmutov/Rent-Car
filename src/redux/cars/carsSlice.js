@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchCarsThunk } from './carsOperation';
+import { fetchCarsThunk, fetchLoadMoreCarsThunk } from './carsOperation';
 
 const initialState = {
   allCars: [],
@@ -31,14 +31,21 @@ const carsSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.allCars = action.payload;
-
-        // if (newCars.length < action.meta.arg.limit) {
-        //   state.endOfData = true;
-        // } else {
-        //   state.endOfData = false;
-        // }
       })
       .addCase(fetchCarsThunk.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+
+      .addCase(fetchLoadMoreCarsThunk.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(fetchLoadMoreCarsThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.allCars = [...state.allCars, ...action.payload];
+      })
+      .addCase(fetchLoadMoreCarsThunk.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });

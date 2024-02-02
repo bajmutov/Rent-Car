@@ -10,13 +10,13 @@ import Footer from 'components/Footer';
 export default function Layout() {
   return (
     <>
-        <AppBar />
+      <AppBar />
       <Main>
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </Main>
-       <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
