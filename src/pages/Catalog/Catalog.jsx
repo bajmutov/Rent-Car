@@ -3,13 +3,16 @@
 // import { CarsList, ServiceMessage } from '../../components';
 
 import Button from 'components/Button';
-import CarsList from 'components/CarsList';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchCarsThunk } from '../../redux/cars/carsOperation';
+import { selectAllCars } from '../../redux/cars/carsSelectors';
+import CarsList from 'components/CarsList';
 
-export const Catalog = () => {
+const Catalog = () => {
   //   const favoriteCars = useSelector(carsSelectors.getFavoriteCars);
+  const allCars = useSelector(selectAllCars);
+  
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchCarsThunk());
@@ -17,9 +20,9 @@ export const Catalog = () => {
 
   return (
     <>
-      <p>Catalog</p>
+      {/* <p>Catalog</p> */}
       {/* <Filters /> */}
-      <CarsList />
+      <CarsList cars={allCars} />
       <Button paddingX={99.5}>Load More</Button>
     </>
   );

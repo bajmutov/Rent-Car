@@ -9,7 +9,7 @@ transition: var(--transition);
 padding: ${({ paddingY, paddingX }) => `${paddingY}px ${paddingX}px`};
 
 &:hover,&:focus {
-  background-color: var(--dark-blue-color);
+  background-color: var(--dark-blue-color);}
 `;
 
 // muiStyled(Button)(({ theme, width }) => ({

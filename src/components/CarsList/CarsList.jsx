@@ -1,21 +1,26 @@
 // import { useSelector } from 'react-redux';
 // import { selectFilteredContacts } from 'redux/selectors';
-// import { Container, List } from '@chakra-ui/react';
+import { Container, List } from '@chakra-ui/react';
+import CarItem from 'components/CarItem';
+import { WrapperList } from './CarsList.styled';
 // import ContactItem from './ContactItem';
 
-const ContactList = () => {
-  // const filteredContacts = useSelector(selectFilteredContacts);
+// import { useSelector } from "react-redux";
+// import { selectAllCars } from "redux/cars/carsSelectors";
+
+const CarsList = ({ cars }) => {
+  console.log('cars', cars)
 
   return (
-    <p>ContactList</p>
-    // <Container width={496} mt={3}>
-    //   <List>
-    //     {filteredContacts &&
-    //       filteredContacts.map(({ id, name, number }) => (
-    //         <ContactItem key={id} id={id} name={name} number={number} />
-    //       ))}
-    //   </List>
-    // </Container>
+    // <p>ContactList</p>
+    <div>
+      <WrapperList>
+      {cars.map(car => (
+        <CarItem key={car.id} car={car} />
+      ))}
+      </WrapperList>
+    </div>
+  );
 
     // <div>
     //   <ul>
@@ -25,7 +30,7 @@ const ContactList = () => {
     //       ))}
     //   </ul>
     // </div>+
-  );
+  
 };
 
-export default ContactList;
+export default CarsList;

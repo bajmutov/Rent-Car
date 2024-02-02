@@ -1,7 +1,7 @@
 @import-normalize; /* bring in normalize.css styles */
 
 :root {
-  --background-color: #cdcdcd;
+  --grey-color: #cdcdcd;
   --main-text-color: #121417;
   --white-text-color: #ffffff;
   --dark-blue-color: #0b44cd;
@@ -14,7 +14,7 @@ body {
   line-height: 1.5;
   font-size: 24px;
   font-weight: 400;
-  background: var(--background-color);
+  background: var(--white-text-color);
   margin: 0;
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
