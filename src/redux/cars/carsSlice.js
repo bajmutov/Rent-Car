@@ -3,8 +3,6 @@ import { fetchCarsThunk, fetchLoadMoreCarsThunk } from './carsOperation';
 
 const initialState = {
   allCars: [],
-  //   favoriteCars: [],
-  //   endOfData: null,
   error: false,
   isLoading: false,
 };
@@ -12,16 +10,6 @@ const initialState = {
 const carsSlice = createSlice({
   name: 'cars',
   initialState,
-  //   reducers: {
-  //     addFavorite(state, action) {
-  //       state.favoriteCars.push(action.payload);
-  //     },
-  //     deleteFavorite(state, action) {
-  //       state.favoriteCars = state.favoriteCars.filter(
-  //         car => car.id !== action.payload
-  //       );
-  //     },
-  //   },
   extraReducers: builder => {
     builder
       .addCase(fetchCarsThunk.pending, state => {

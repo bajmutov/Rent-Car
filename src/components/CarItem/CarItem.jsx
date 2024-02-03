@@ -1,10 +1,3 @@
-// import { useDispatch, useSelector } from 'react-redux';
-// import { carsSelectors } from '../../redux/cars/carsSelectors';
-// import {
-//   addFavorite,
-//   deleteFavorite,
-// } from '../../redux/cars/carsOperations';
-import { CSSTransition } from 'react-transition-group';
 import {
   Wrapper,
   ImageWrap,
@@ -15,20 +8,23 @@ import {
   Text,
   List,
   Item,
+  HeartButton,
 } from './CarItem.styled';
-// import { TitleText, DescriptionText } from '../../components';
 import { useState } from 'react';
 import Button from 'components/Button';
 import Modal from 'components/Modal';
-// import { ReactComponent as NormalHeartIcon } from '../../assets/Svg/normalHeart.svg';
-// import { ReactComponent as FavoriteHeartIcon } from '../../assets/Svg/activeHeart.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectFavoriteCars } from '../../redux/cars/carsSelectors';
+import {
+  addFavouriteCar,
+  removeFavouriteCar,
+} from '../../redux/cars/favouriteSlice';
+import icon from '../../images/sprite.svg';
+import { toastError, toastSuccess } from 'helpers/toastCase';
 
 const CarItem = ({ car }) => {
   const [showModal, setShowModal] = useState(false);
-
-  const toggleModal = () => {
-    setShowModal(state => !state);
-  };
+  const favouriteCars = useSelector(selectFavoriteCars);
 
   const {
     make,
@@ -44,25 +40,37 @@ const CarItem = ({ car }) => {
     accessories,
   } = car;
 
-  //   const favoriteCars = useSelector(carsSelectors.getFavoriteCars);
-  //   const dispatch = useDispatch();
+  const toggleModal = () => {
+    setShowModal(state => !state);
+  };
 
-  //   const isFavoriteCar = () => favoriteCars.some(car => car.id === id);
+  const dispatch = useDispatch();
 
-  //   const toggleHeart = () => {
-  //     if (isFavoriteCar()) {
-  //       dispatch(deleteFavorite(id));
-  //     } else {
-  //       dispatch(addFavorite(car));
-  //     }
-  //   };
+  const carIsFavorite = favouriteCars.some(
+    favoriteCar => favoriteCar.id === car.id
+  );
 
-  //   const onClickLearnMore = () => openModal(id);
+  const favoriteIcon = carIsFavorite ? 'heart-active' : 'heart-normal';
+
+  const handleToggleFavourite = () => {
+    if (carIsFavorite) {
+      toastError('You remove from favourites ', `${car.make} ${car.model}`);
+      dispatch(removeFavouriteCar(car));
+    } else {
+      toastSuccess('You add to favourites ', `${car.make} ${car.model}`);
+      dispatch(addFavouriteCar(car));
+    }
+  };
 
   return (
     <Wrapper>
       <ImageWrap>
-        {/* <HeartIcon data={data} /> */}
+        <HeartButton type="button" onClick={handleToggleFavourite}>
+          <svg width="18" height="18">
+            <use href={`${icon}#${favoriteIcon}`}></use>
+          </svg>
+        </HeartButton>
+
         <Image src={img || photoLink} alt={make} />
       </ImageWrap>
       <TitleWrap>

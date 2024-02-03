@@ -1,5 +1,3 @@
-@import-normalize; /* bring in normalize.css styles */
-
 :root {
   --grey-color: #cdcdcd;
   --main-text-color: #121417;

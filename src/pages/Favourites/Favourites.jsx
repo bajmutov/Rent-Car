@@ -1,34 +1,26 @@
-// import { useSelector } from 'react-redux';
-// import { carsSelectors } from 'redux/Cars/carsSelectors';
-// import { CarsList, ServiceMessage } from '../../components';
+import { useSelector } from 'react-redux';
+import { selectFavoriteCars } from '../../redux/cars/carsSelectors';
+import CarsList from 'components/CarsList';
+import { Container, Info } from './Favourites.styled';
 
-export const Favourites = () => {
-//   const favoriteCars = useSelector(carsSelectors.getFavoriteCars);
-  
-    return (
-      <p>Favourites</p>
-        // <WrapperList>
-        //   {cars.length ? (
-        //     cars.map((favorite, index) => (
-        //       <CarItem key={index} data={favorite} />
-        //     ))
-        //   ) : (
-        //     <Text>Your favorites are currently empty...</Text>
-        //   )}
-        //   {favoriteCars.favorites.length > cars.length && (
-        //     <LoadMore variant="text" onClick={loadMore}>
-        //       Load more
-        //     </LoadMore>
-        //   )}
-      // </WrapperList>
-      
-    // <>
-    //   {!favoriteCars.length ? (
-    //     <ServiceMessage message="there are no selected cars in your list"/>
-    //   ) : (
-    //     <CarsList cars={favoriteCars} />
-    //   )}
-    // </>
+const Favourites = () => {
+  const favouriteCars = useSelector(selectFavoriteCars);
+
+  const isShowFavoriteList = favouriteCars.length > 0;
+
+  return (
+    <section>
+      <Container>
+        {!isShowFavoriteList && (
+          <Info>
+            There are no favourite cars yet. Choose your cars in catalog
+            please...
+          </Info>
+        )}
+
+        {isShowFavoriteList && <CarsList cars={favouriteCars} />}
+      </Container>
+    </section>
   );
 };
 

@@ -10,25 +10,24 @@ import {
   getFormatRentalPrice,
 } from '../../helpers/utils';
 import {
-  ModalBackdrop,
   ModalContent,
   BtnClose,
-  SvgStyled,
-  ImgDivStyled,
   ImgStyled,
   NameDivStyled,
   ModelSpanStyled,
-  AdressTextStyled,
-  TypeTextStyled,
-  DescriptionSpanStyled,
-  DescriptionTextStyled,
-  AccessoriesTextStyled,
-  RentalTextStyled,
-  BtnRentalCarStyled,
-  RentalMinAgeDivStyled,
-  RentalDepositDivStyled,
-  DescriptionRentalPStyled,
   AccentSpanStyled,
+  Overlay,
+  SvgX,
+  ImgWrapper,
+  AdressInfoWrap,
+  Description,
+  DescriptionText,
+  AccessoriesText,
+  TextInfo,
+  RentalText,
+  RentalConditionsWrap,
+  DescriptionRentalWrap,
+  BtnRental,
 } from './Modal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
@@ -74,77 +73,73 @@ const Modal = ({ car, onClose }) => {
   const formatRentalPrice = getFormatRentalPrice(car);
 
   return createPortal(
-    <ModalBackdrop onClick={handleBackdropClick}>
+    <Overlay onClick={handleBackdropClick}>
       <ModalContent>
-        <BtnClose type="button" onClick={onClose} aria-label="Close">
-          <SvgStyled />
+        <BtnClose type="button" onClick={onClose} aria-label="Close button">
+          <SvgX />
         </BtnClose>
 
-        <ImgStyled src={img} alt={description} />
+        <ImgWrapper>
+          <ImgStyled src={img} alt={description} />
+        </ImgWrapper>
 
         <NameDivStyled>
           {make} <ModelSpanStyled>{model}</ModelSpanStyled>, {year}
         </NameDivStyled>
 
-        <AdressTextStyled>
-          <DescriptionSpanStyled>{city}</DescriptionSpanStyled>
-          <DescriptionSpanStyled>{country}</DescriptionSpanStyled>
-          <DescriptionSpanStyled>Id: {id}</DescriptionSpanStyled>
-          <DescriptionSpanStyled>Year: {year}</DescriptionSpanStyled>
-          <DescriptionSpanStyled>Type: {type}</DescriptionSpanStyled>
-        </AdressTextStyled>
+        <AdressInfoWrap>
+          <Description>{city}</Description>
+          <Description>{country}</Description>
+          <Description>Id: {id}</Description>
+          <Description>Year: {year}</Description>
+          <Description>Type: {type}</Description>
+        </AdressInfoWrap>
 
-        <TypeTextStyled>
-          <DescriptionSpanStyled>
-            Fuel Consumption: {fuelConsumption}
-          </DescriptionSpanStyled>
-          <DescriptionSpanStyled>
-            Engine Size: {engineSize}
-          </DescriptionSpanStyled>
-        </TypeTextStyled>
+        <TextInfo>
+          <Description>Fuel Consumption: {fuelConsumption}</Description>
+          <Description>Engine Size: {engineSize}</Description>
+        </TextInfo>
 
-        <DescriptionTextStyled>{description}</DescriptionTextStyled>
+        <DescriptionText>{description}</DescriptionText>
 
-        <AccessoriesTextStyled>
-          Accessories and functionalities:
-        </AccessoriesTextStyled>
+        <AccessoriesText>Accessories and functionalities:</AccessoriesText>
 
-        <AdressTextStyled>
-          <DescriptionSpanStyled>{accessories[0]}</DescriptionSpanStyled>
-          <DescriptionSpanStyled>{accessories[1]}</DescriptionSpanStyled>
-          <DescriptionSpanStyled>{accessories[2]}</DescriptionSpanStyled>
-        </AdressTextStyled>
+        <AdressInfoWrap>
+          <Description>{accessories[0]}</Description>
+          <Description>{accessories[1]}</Description>
+          <Description>{accessories[2]}</Description>
+        </AdressInfoWrap>
 
-        <TypeTextStyled>
-          <DescriptionSpanStyled>{functionalities[0]}</DescriptionSpanStyled>
-          <DescriptionSpanStyled>{functionalities[1]}</DescriptionSpanStyled>
-          <DescriptionSpanStyled>{functionalities[2]}</DescriptionSpanStyled>
-        </TypeTextStyled>
+        <TextInfo>
+          <Description>{functionalities[0]}</Description>
+          <Description>{functionalities[1]}</Description>
+          <Description>{functionalities[2]}</Description>
+        </TextInfo>
 
-        <RentalTextStyled>Rental Conditions:</RentalTextStyled>
+        <RentalText>Rental Conditions:</RentalText>
 
-        <RentalMinAgeDivStyled>
-          <DescriptionRentalPStyled>
+        <RentalConditionsWrap>
+          <DescriptionRentalWrap>
             {minAge.key}: <AccentSpanStyled>{minAge.value}</AccentSpanStyled>
-          </DescriptionRentalPStyled>
-          <DescriptionRentalPStyled>{license}</DescriptionRentalPStyled>
-        </RentalMinAgeDivStyled>
+          </DescriptionRentalWrap>
+          <DescriptionRentalWrap>{license}</DescriptionRentalWrap>
+        </RentalConditionsWrap>
 
-        <RentalDepositDivStyled>
-          <DescriptionRentalPStyled>{deposit}</DescriptionRentalPStyled>
-          <DescriptionRentalPStyled>
+        <RentalConditionsWrap>
+          <DescriptionRentalWrap>{deposit}</DescriptionRentalWrap>
+          <DescriptionRentalWrap>
             Mileage: <AccentSpanStyled>{formatMileage}</AccentSpanStyled>
-          </DescriptionRentalPStyled>
-          <DescriptionRentalPStyled>
+          </DescriptionRentalWrap>
+          <DescriptionRentalWrap>
             Price: <AccentSpanStyled>{formatRentalPrice}</AccentSpanStyled>
-          </DescriptionRentalPStyled>
-        </RentalDepositDivStyled>
+          </DescriptionRentalWrap>
+        </RentalConditionsWrap>
 
-        <BtnRentalCarStyled type="button">
+        <BtnRental type="button">
           <a href="tel:+380730000000">Rental car</a>
-        </BtnRentalCarStyled>
+        </BtnRental>
       </ModalContent>
-    </ModalBackdrop>,
+    </Overlay>,
     modalRoot
   );
 };

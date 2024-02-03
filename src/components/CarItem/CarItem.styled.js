@@ -1,5 +1,29 @@
 import styled from '@emotion/styled';
 
+export const HeartButton = styled.button`
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+  cursor: pointer;
+
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: transparent;
+  border: none;
+
+  transition: transform var(--transition);
+
+  &:hover {
+    transform: scale(1.3);
+  }
+`;
+
 export const Wrapper = styled.li`
   display: flex;
   width: 274px;
@@ -20,12 +44,6 @@ export const Image = styled.img`
   height: 268px;
   object-fit: cover;
   border-radius: 14px;
-  transition: var(--transition);
-
-  &:hover,
-  &:focus {
-    transform: scale(1.05);
-  }
 `;
 
 export const TitleWrap = styled.div`
@@ -67,11 +85,11 @@ export const List = styled.ul`
   margin-bottom: 28px;
   width: 255px;
   height: 40px;
-  /* overflow: hidden; */
 `;
 
 export const Item = styled.li`
   color: rgba(18, 20, 23, 0.5);
+  /* color: rgba(18, 20, 23, 0.5); */
   font-size: 12px;
   font-weight: 400;
   line-height: 1.5;

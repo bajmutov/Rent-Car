@@ -19,7 +19,6 @@ export default function Button({
       onClick={handleClick}
       disabled={disabled}
     >
-      {/* <Text>{text}</Text> */}
       {children}
     </StylesButton>
   );

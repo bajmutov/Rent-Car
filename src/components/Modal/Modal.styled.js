@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { ReactComponent as CloseIcon } from '../../images/close.svg';
 
-export const ModalBackdrop = styled.div`
+export const Overlay = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -45,14 +45,12 @@ export const BtnClose = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  /* color: var(--main-text-color); */
   background-color: var(--white-text-color);
   border: none;
   border-radius: 50%;
 `;
 
-export const SvgStyled = styled(CloseIcon)`
+export const SvgX = styled(CloseIcon)`
   fill: var(--main-text-color);
   transition: fill var(--transition);
 
@@ -62,12 +60,20 @@ export const SvgStyled = styled(CloseIcon)`
   }
 `;
 
-export const ImgStyled = styled.img`
+export const ImgWrapper = styled.div`
   width: 461px;
   height: 248px;
   display: block;
-  /* object-fit: cover; */
+  background: center;
   border-radius: 14px;
+  overflow: hidden;
+`;
+
+export const ImgStyled = styled.img`
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 `;
 
 export const NameDivStyled = styled.div`
@@ -82,21 +88,21 @@ export const ModelSpanStyled = styled.span`
   color: var(--light-blue-color);
 `;
 
-export const AdressTextStyled = styled.p`
+export const AdressInfoWrap = styled.p`
   font-size: 12px;
   line-height: calc(18 / 12);
   margin-top: 8px;
   margin-bottom: 0;
 `;
 
-export const TypeTextStyled = styled.p`
+export const TextInfo = styled.p`
   font-size: 12px;
   line-height: calc(18 / 12);
   margin-top: 4px;
   margin-bottom: 0;
 `;
 
-export const DescriptionSpanStyled = styled.span`
+export const Description = styled.span`
   color: var(--alternative-grey-color);
 
   &:not(:last-child):after {
@@ -106,7 +112,7 @@ export const DescriptionSpanStyled = styled.span`
   }
 `;
 
-export const DescriptionTextStyled = styled.p`
+export const DescriptionText = styled.p`
   font-size: 14px;
   font-weight: 400;
   line-height: calc(20 / 14);
@@ -115,7 +121,7 @@ export const DescriptionTextStyled = styled.p`
   margin-bottom: 0;
 `;
 
-export const AccessoriesTextStyled = styled.p`
+export const AccessoriesText = styled.p`
   font-size: 14px;
   font-weight: 500;
   line-height: calc(20 / 14);
@@ -123,7 +129,7 @@ export const AccessoriesTextStyled = styled.p`
   margin-bottom: 0;
 `;
 
-export const RentalTextStyled = styled.p`
+export const RentalText = styled.p`
   color: var(--main-text-color);
   font-size: 14px;
   font-weight: 500;
@@ -132,28 +138,47 @@ export const RentalTextStyled = styled.p`
   margin-top: 24px;
 `;
 
-export const BtnRentalCarStyled = styled.button`
-  cursor: pointer;
+export const RentalConditionsWrap = styled.div`
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+`;
 
+export const DescriptionRentalWrap = styled.div`
+  display: flex;
+  padding: 7px 14px;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  border-radius: 35px;
+  background: #f9f9f9;
+
+  color: var(--secondary-black-color);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.24px;
+`;
+
+export const AccentSpanStyled = styled.span`
+  color: var(--light-blue-color);
+  font-weight: 600;
+`;
+
+export const BtnRental = styled.button`
   width: 100%;
   max-width: 168px;
   height: 44px;
   padding: 12px 50px;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
-  color: var(--white-text-color);
-
   background-color: var(--light-blue-color);
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
-
   border-radius: 12px;
   border: none;
-
   margin-top: 24px;
   transition: background-color var(--transition);
 
@@ -161,40 +186,4 @@ export const BtnRentalCarStyled = styled.button`
   &:focus {
     background-color: var(--dark-blue-color);
   }
-`;
-
-export const RentalMinAgeDivStyled = styled.div`
-  display: flex;
-  gap: 8px;
-
-  margin-top: 8px;
-`;
-
-export const RentalDepositDivStyled = styled.div`
-  display: flex;
-  gap: 10px;
-
-  margin-top: 8px;
-`;
-
-export const DescriptionRentalPStyled = styled.div`
-  display: flex;
-  padding: 7px 14px;
-  justify-content: center;
-  align-items: center;
-  gap: 2px;
-
-  border-radius: 35px;
-  background: #f9f9f9;
-
-  color: var(--secondary-black-color);
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 18px; /* 150% */
-  letter-spacing: -0.24px;
-`;
-
-export const AccentSpanStyled = styled.span`
-  color: var(--light-blue-color);
-  font-weight: 600;
 `;
