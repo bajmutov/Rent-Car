@@ -4,19 +4,22 @@ import { Suspense } from 'react';
 // import { Wrapper } from './Layout.style';
 import Loader from 'components/Loader';
 import AppBar from 'components/AppBar';
-import { Main } from './Layout.styled';
+import { MainContainer, Main } from './Layout.styled';
 import Footer from 'components/Footer';
+import Container from 'components/Container';
 
 export default function Layout() {
   return (
-    <>
+    <MainContainer>
       <AppBar />
       <Main>
-        <Suspense fallback={<Loader />}>
-          <Outlet />
-        </Suspense>
+        <Container>
+          <Suspense fallback={<Loader />}>
+            <Outlet />
+          </Suspense>
+        </Container>
       </Main>
-      {/* <Footer /> */}
-    </>
+      <Footer />
+    </MainContainer>
   );
 }

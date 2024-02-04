@@ -1,20 +1,23 @@
 import { useDispatch, useSelector } from 'react-redux';
-// import { getAllFilters } from '../../redux/filters/filterSelectors';
 import { addFilters } from '../../redux/filters/filterSlice.js';
-// import { ItemInput } from './Inputs/ItemInput';
-import {
-  Container,
-  Form,
-  DoubleInput,
-  WrapperInput,
-  TextBeforeInput,
-  Label,
-  Input,
-} from './Filters.styled';
-// import { makes, prices } from '../../Resources/makes.jsx';
 import { useState } from 'react';
 import { selectIsLoading } from '../../redux/cars/carsSelectors';
 import Button from 'components/Button';
+
+import makes from '../../constants/makes.json';
+import { createPrices } from '../../constants/price.js';
+
+import {
+  FilterForm,
+  FilterFormItemWrapper,
+  FilterFormLabel,
+  FilterFormSelect,
+  FilterFormArrowIcon,
+  FilterFormCustomSelect,
+  FilterFormMileageInput,
+  FilterFormInputFrom,
+  FilterFormInputTo,
+} from './Filters.styled.jsx';
 
 export const Filters = () => {
   const isLoading = useSelector(selectIsLoading);
@@ -26,139 +29,112 @@ export const Filters = () => {
   const [selectingMileageFrom, setSelectingMileageFrom] = useState('');
   const [selectingMileageTo, serSelectingMileageTo] = useState('');
 
-  const handleClickSearchButton = () => {
-    dispatch(
-      addFilters({
-        brand: selectingBrand,
-        price: selectingPrice,
-        mileageFrom: selectingMileageFrom,
-        mileageTo: selectingMileageTo,
-      })
-    );
+  const prices = createPrices();
+
+  // const handleClickSearchButton = () => {
+  //   dispatch(
+  //     addFilters({
+  //       brand: selectingBrand,
+  //       price: selectingPrice,
+  //       mileageFrom: selectingMileageFrom,
+  //       mileageTo: selectingMileageTo,
+  //     })
+  //   );
+  // };
+
+  const onFormSubmit = e => {
+    e.preventDefault();
+    const { brand, price, mileageFrom, mileageTo } = e.target.elements;
+    const data = {
+      brand: brand.value,
+      maxPrice: price.value,
+      mileageFrom: mileageFrom.value,
+      mileageTo: mileageTo.value,
+    };
+    console.log(data);
   };
 
-  const handleMileageChange = e => {
-    let { name, value } = e.target;
-    if (name === 'From') {
-      setSelectingMileageFrom(value);
-    } else serSelectingMileageTo(value);
-  };
+  // const handleMileageChange = e => {
+  //   let { name, value } = e.target;
+  //   if (name === 'From') {
+  //     setSelectingMileageFrom(value);
+  //   } else serSelectingMileageTo(value);
+  // };
 
   return (
-    <Container>
-      <Form name="search_form">
-        {/* <ItemInput
-          id="carBrand"
-          data={makes}
-          width="224px"
-          label="Car brand"
-          placeholder={{ default: 'Enter the text', store: brand }}
-          handleSelectFilter={{
-            settingChoice: choice => {
-              setSelectingBrand(choice);
-            },
-            viewPlaceholder: choice => choice,
-          }}
-        />
+    <FilterForm onSubmit={onFormSubmit}>
+      <FilterFormItemWrapper>
+        <FilterFormLabel htmlFor="car_brand">Car Brand</FilterFormLabel>
 
-        <ItemInput
-          id="pricePerHour"
-          data={prices}
-          width="125px"
-          label="Price/ 1 hour"
-          placeholder={{ default: 'To  $', store: price }}
-          handleSelectFilter={{
-            settingChoice: choice => setSelectingPrice(choice),
-            viewPlaceholder: choice => `To  ${choice}$`,
-          }}
-        /> */}
+        <FilterFormCustomSelect>
+          <FilterFormSelect
+            name="brand"
+            placeholder="Enter the text"
+            id="car_brand"
+            defaultValue=""
+            $width={224}
+          >
+            <option value="" disabled>
+              Enter the text
+            </option>
+            {makes.map(make => (
+              <option key={make} value={make}>
+                {make}
+              </option>
+            ))}
+          </FilterFormSelect>
+          <FilterFormArrowIcon>
+            <use xlinkHref="/sprite.svg#icon-chevron-down"></use>
+          </FilterFormArrowIcon>
+        </FilterFormCustomSelect>
+      </FilterFormItemWrapper>
+      <FilterFormItemWrapper>
+        <FilterFormLabel htmlFor="car_price">Price/ 1 hour</FilterFormLabel>
 
-        <Label>
-          Car mileage/ km
-          <DoubleInput>
-            <WrapperInput>
-              <TextBeforeInput>From</TextBeforeInput>
-              <Input
-                type="text"
-                name="From"
-                value={selectingMileageFrom}
-                onChange={handleMileageChange}
-                style={{
-                  paddingLeft: '70px',
-                  borderBottomRightRadius: 0,
-                  borderTopRightRadius: 0,
-                  borderRight: '1px solid rgba(138, 138, 137, 0.2)',
-                }}
-              />
-            </WrapperInput>
-            <WrapperInput>
-              <TextBeforeInput>To</TextBeforeInput>
-              <Input
-                type="text"
-                name="To"
-                value={selectingMileageTo}
-                onChange={handleMileageChange}
-                style={{
-                  paddingLeft: '45px',
-                  borderBottomLeftRadius: 0,
-                  borderTopLeftRadius: 0,
-                }}
-              />
-            </WrapperInput>
-          </DoubleInput>
-        </Label>
-
-        <Button
-          type="submit"
-          paddingX={44}
-          onClick={() => handleClickSearchButton()}
-          disabled={isLoading}
-        >
-          {isLoading ? 'Searching...' : ' Search'}
-        </Button>
-      </Form>
-    </Container>
+        <FilterFormCustomSelect>
+          <FilterFormSelect
+            name="price"
+            placeholder="To $"
+            id="car_price"
+            defaultValue=""
+            $width={125}
+          >
+            <option value="" disabled>
+              To $
+            </option>
+            {prices.map(price => (
+              <option key={price}>{price}</option>
+            ))}
+          </FilterFormSelect>
+          <FilterFormArrowIcon>
+            <use xlinkHref="/sprite.svg#icon-chevron-down"></use>
+          </FilterFormArrowIcon>
+        </FilterFormCustomSelect>
+      </FilterFormItemWrapper>
+      <FilterFormItemWrapper>
+        <FilterFormLabel htmlFor="min_mileage">
+          Сar mileage / km
+        </FilterFormLabel>
+        <FilterFormMileageInput>
+          <FilterFormInputFrom
+            type="number"
+            name="mileageFrom"
+            placeholder="From"
+            id="min_mileage"
+          />
+          <FilterFormInputTo
+            type="number"
+            name="mileageTo"
+            placeholder="To"
+            id="max_mileage"
+          />
+        </FilterFormMileageInput>
+      </FilterFormItemWrapper>
+      <Button type="submit" paddingX={44} paddingY={14} disabled={isLoading}>
+        {isLoading ? 'Searching...' : ' Search'}
+      </Button>
+    </FilterForm>
   );
 };
-
-// import { useDispatch, useSelector } from 'react-redux';
-// import { addFilters } from '../../redux/filters/filterSlice';
-// import { Flex, Input } from '@chakra-ui/react';
-// import {
-//   getFiltersMileageFrom,
-//   getFiltersMileageTo,
-// } from '../../redux/filters/filterSelectors';
-
-// const Filters = () => {
-//   const filtersMileageFrom = useSelector(getFiltersMileageFrom);
-//   const filtersMileageTo = useSelector(getFiltersMileageTo);
-//   const dispatch = useDispatch();
-//   const handleFilterChange = e => dispatch(addFilters(e.currentTarget.value));
-
-//   return (
-//     <Flex justifyContent={'center'}>
-//       <Input
-//         boxShadow="dark-lg"
-//         p="0 10px"
-//         width="466px"
-//         name="title"
-//         type="text"
-//         onChange={handleFilterChange}
-//         value={filtersMileageFrom}
-//         placeholder="Find contact by name"
-//       />
-//       <Input
-//         boxShadow="dark-lg"
-//         p="0 10px"
-//         width="466px"
-//         name="title"
-//         type="text"
-//         onChange={handleFilterChange}
-//         value={filtersMileageTo}
-//         placeholder="Find contact by name"
-//       />
-//     </Flex>
-//   );
-// };
 
 export default Filters;

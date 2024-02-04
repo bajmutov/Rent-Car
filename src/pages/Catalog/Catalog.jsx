@@ -10,7 +10,11 @@ import CarsList from 'components/CarsList';
 import { LIMIT_PER_PAGE } from '../../constants/constants';
 import Loader from 'components/Loader';
 import Filters from 'components/Filters';
-import { getAllFilters } from '../../redux/filters/filterSelectors';
+import {
+  getAllFilters,
+  selectVisibleCars,
+} from '../../redux/filters/filterSelectors';
+import { StyledCatalogPage } from './Catalog.styled';
 
 const Catalog = () => {
   const allCars = useSelector(selectAllCars);
@@ -68,9 +72,8 @@ const Catalog = () => {
   const isShowButton = allCars.length > 0 && !(allCars.length % LIMIT_PER_PAGE);
 
   return (
-    <>
+    <StyledCatalogPage>
       <Filters />
-
       {isLoading && <Loader />}
       {visibleCars.length && <CarsList cars={visibleCars} />}
       {isShowButton && (
@@ -78,7 +81,7 @@ const Catalog = () => {
           {isLoading ? 'Loading...' : ' Load More'}
         </Button>
       )}
-    </>
+    </StyledCatalogPage>
   );
 };
 

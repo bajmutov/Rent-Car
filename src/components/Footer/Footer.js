@@ -1,10 +1,31 @@
-import { Text } from "./Footer.styled";
+import Container from 'components/Container';
+import {
+  StyledFooter,
+  StyledFooterContainer,
+  StyledFooterMetaContainer,
+  StyledFooterMetaLink,
+} from './Footer.styled';
+import Logo from 'components/Logo';
 
 const Footer = () => {
   return (
-    <footer>
-      <Text>© 2023 Oleksandr Bakhmutov. All rights reserved</Text>
-    </footer>
+    <StyledFooter>
+      <Container>
+        <StyledFooterContainer>
+          <Logo />
+
+          <StyledFooterMetaContainer>
+            <StyledFooterMetaLink
+              href="https://github.com/Ivan011001/car-rental"
+              target="_blank"
+              referrerPolicy="no-referrer"
+            >
+              Privacy Policy
+            </StyledFooterMetaLink>
+          </StyledFooterMetaContainer>
+        </StyledFooterContainer>
+      </Container>
+    </StyledFooter>
   );
 };
 

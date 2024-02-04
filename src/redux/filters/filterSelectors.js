@@ -39,28 +39,3 @@ export const selectVisibleCars = createSelector(
     }
   }
 );
-
-//  if (!mileageFrom && !mileageTo) {
-//    setVisibleCars(allCars);
-//  } else {
-//    let filteredCars = [...allCars];
-
-//    if (brand)
-//      filteredCars = filteredCars.filter(
-//        car => car.make.trim().toLowerCase() === brand.trim().toLowerCase()
-//      );
-
-//    if (price)
-//      filteredCars = filteredCars.filter(
-//        car => parseInt(car.rentalPrice.replace('$', ''), 10) <= price
-//      );
-
-//    if (mileageFrom || mileageTo) {
-//      filteredCars = filteredCars.filter(
-//        car =>
-//          mileageFrom <= car.mileage && (car.mileage <= mileageTo || !mileageTo)
-//      );
-//    }
-
-//    setVisibleCars(filteredCars);
-//  }

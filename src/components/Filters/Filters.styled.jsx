@@ -1,82 +1,74 @@
 import styled from 'styled-components';
+import { StyledInput } from './Input/Input.styled';
 
-export const Container = styled.div`
+export const FilterForm = styled.form`
   display: flex;
   justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 50px;
+  align-items: flex-end;
+  gap: 18px;
 `;
 
-export const Form = styled.form`
+export const FilterFormItemWrapper = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: end;
-  row-gap: 10px;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: flex-start;
 `;
 
-export const Label = styled.label`
-  width: 320px;
-  position: relative;
-  margin-right: 18px;
-  font-family: 'Manrope', sans-serif;
+export const FilterFormLabel = styled.label`
+  font-weight: 500;
   font-size: 14px;
-  font-weight: 500;
-  line-height: 18px;
-  color: var(--grey-text-color);
+  line-height: 129%;
 `;
 
-export const DoubleInput = styled.div`
-  display: flex;
-  flex-wrap: nowrap;
-`;
-
-export const WrapperInput = styled.div`
+export const FilterFormCustomSelect = styled.div`
   position: relative;
-  margin-top: 8px;
+  display: inline-block;
+  display: flex;
 `;
 
-export const TextBeforeInput = styled.span`
-  position: absolute;
-  left: 18px;
-  top: 14.5px;
-  font-family: 'Manrope', sans-serif;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 20px;
-  color: var(--dark-text-color);
-`;
-
-export const Input = styled.input`
-  width: 100%;
+export const FilterFormSelect = styled.select`
+  color: var(--main-text-color);
   height: 48px;
+  width: ${({ $width }) => `${$width}px`};
   border-radius: 14px;
   border: none;
-  background-color: var(--background-second-grey-color);
-  font-family: 'Manrope', sans-serif;
-  font-size: 18px;
+  padding: 14px 18px;
+  background: #f7f7fb;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  cursor: pointer;
+
   font-weight: 500;
-  line-height: 20px;
+  font-size: 18px;
+  line-height: 111%;
 
   &:focus {
-    outline: none;
+    outline: 1px solid var(--light-blue-color);
   }
 `;
 
-export const Button = styled.label`
-  width: 136px;
-  height: 48px;
-  text-align: center;
-  font-family: 'Manrope', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 48px;
-  color: var(--light-text-color);
-  border-radius: 12px;
-  background-color: var(--normal-button-color);
-  transition: background-color 0.3s ease;
+export const FilterFormArrowIcon = styled.svg`
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+`;
 
-  &:hover {
-    background-color: var(--hover-button-color);
-  }
+export const FilterFormMileageInput = styled.div`
+  display: flex;
+`;
+
+export const FilterFormInputFrom = styled(StyledInput)`
+  border-right: 1px solid rgba(138, 138, 137, 0.2);
+  border-radius: 14px 0 0 14px;
+`;
+
+export const FilterFormInputTo = styled(StyledInput)`
+  border-radius: 0 14px 14px 0;
 `;
