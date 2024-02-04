@@ -3,7 +3,6 @@ import {
   StyledFooter,
   StyledFooterContainer,
   StyledFooterMediaContainer,
-  StyledFooterMediaIcon,
   StyledFooterMetaContainer,
   StyledFooterMetaLink,
 } from './Footer.styled';
