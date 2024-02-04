@@ -27,7 +27,7 @@ const Footer = () => {
 
           <StyledFooterMediaContainer>
             <li>
-              <a href="https://twitter.com/" target="_blank">
+              <a href="https://twitter.com/" target="_blank" rel="noreferrer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   x="0px"
@@ -44,7 +44,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="https://web.telegram.org/" target="_blank">
+              <a href="https://web.telegram.org/" target="_blank" rel="noreferrer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   x="0px"
@@ -73,7 +73,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="https://www.instagram.com/" target="_blank">
+              <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   x="0px"
