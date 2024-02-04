@@ -9,7 +9,6 @@ export const fetchCarsThunk = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get(`/cars?limit=${LIMIT_PER_PAGE}&page=1`);
-      // console.log(response.data);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

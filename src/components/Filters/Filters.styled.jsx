@@ -1,6 +1,13 @@
 import styled from 'styled-components';
 import { StyledInput } from './Input/Input.styled';
 
+export const FormWrripper = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  align-items: flex-end;
+`;
+
 export const FilterForm = styled.form`
   display: flex;
   justify-content: center;
@@ -19,6 +26,7 @@ export const FilterFormLabel = styled.label`
   font-weight: 500;
   font-size: 14px;
   line-height: 129%;
+  color: var(--filter-grey-color);
 `;
 
 export const FilterFormCustomSelect = styled.div`
@@ -45,7 +53,8 @@ export const FilterFormSelect = styled.select`
   font-size: 18px;
   line-height: 111%;
 
-  &:focus {
+  &:focus,
+  &:hover {
     outline: 1px solid var(--light-blue-color);
   }
 `;
@@ -71,4 +80,21 @@ export const FilterFormInputFrom = styled(StyledInput)`
 
 export const FilterFormInputTo = styled(StyledInput)`
   border-radius: 0 14px 14px 0;
+`;
+
+export const FilterButton = styled.button`
+  border-radius: 12px;
+  color: var(--white-text-color);
+  background-color: var(--light-blue-color);
+  padding: 14px 44px;
+  display: block;
+  border: none;
+  transition: var(--transition);
+  font-size: 14px;
+  line-height: calc(20 / 14);
+
+  &:hover,
+  &:focus {
+    background-color: var(--dark-blue-color);
+  }
 `;

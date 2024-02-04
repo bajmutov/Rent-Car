@@ -1,14 +1,8 @@
 import styled from '@emotion/styled';
-// import { Link } from 'react-router-dom';
 import Image from '../../images/car.jpg';
 
 export const Wrapper = styled.div`
-  /* display: flex;
-  flex-direction: column; */
   padding: 150px 200px;
-  /* margin: 0 auto; */
-  /* background-color: red; */
-  /* flex-direction: column; */
   background-image: url(${Image});
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -22,7 +16,6 @@ export const Wrapper = styled.div`
 export const Heading = styled.h1`
   color: var(--white-text-color);
   text-align: center;
-  /* width: 460px; */
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
@@ -34,8 +27,8 @@ export const Text = styled.p`
   font-weight: 400;
   color: var(--white-text-color);
   text-align: center;
-  /* width: 460px; */
   margin-top: 20px;
+  margin-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
 `;

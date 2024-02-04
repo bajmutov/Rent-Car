@@ -33,3 +33,8 @@ export const StyledFooterMetaLink = styled.a`
     color: var(--light-blue-color);
   }
 `;
+
+export const StyledFooterMediaContainer = styled.ul`
+  display: flex;
+  gap: 8px;
+`;

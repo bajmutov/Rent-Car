@@ -18,9 +18,15 @@ const filterSlice = createSlice({
       state.mileageFrom = mileageFrom;
       state.mileageTo = mileageTo;
     },
+    clearFilter: state => {
+      state.brand = null;
+      state.price = null;
+      state.mileageFrom = null;
+      state.mileageTo = null;
+    },
   },
 });
 
-export const { addFilters } = filterSlice.actions;
+export const { addFilters, clearFilter } = filterSlice.actions;
 
 export const filtersReducer = filterSlice.reducer;

@@ -1,6 +1,3 @@
-// import { Heading } from '@chakra-ui/react';
-// import { Link } from 'react-router-dom';
-
 import Container from 'components/Container';
 import { Heading, Text, Wrapper } from './Home.styled';
 import Button from 'components/Button';

@@ -1,7 +1,5 @@
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
-
-// import { Wrapper } from './Layout.style';
 import Loader from 'components/Loader';
 import AppBar from 'components/AppBar';
 import { MainContainer, Main } from './Layout.styled';
