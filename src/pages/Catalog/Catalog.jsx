@@ -6,8 +6,7 @@ import {
   fetchLoadMoreCarsThunk,
 } from '../../redux/cars/carsOperation';
 import {
-  selectAllCars,
-  selectIsError,
+    selectIsError,
   selectIsLoading,
 } from '../../redux/cars/carsSelectors';
 import CarsList from 'components/CarsList';
