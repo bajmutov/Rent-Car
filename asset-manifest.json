@@ -1,26 +1,27 @@
 {
   "files": {
     "main.css": "/Rent-Car/static/css/main.9a32734d.css",
-    "main.js": "/Rent-Car/static/js/main.db597b15.js",
+    "main.js": "/Rent-Car/static/js/main.5774f317.js",
     "static/js/100.63b4710d.chunk.js": "/Rent-Car/static/js/100.63b4710d.chunk.js",
-    "static/js/795.9d8c760d.chunk.js": "/Rent-Car/static/js/795.9d8c760d.chunk.js",
+    "static/js/916.5ecc817e.chunk.js": "/Rent-Car/static/js/916.5ecc817e.chunk.js",
     "static/js/327.8c201db5.chunk.js": "/Rent-Car/static/js/327.8c201db5.chunk.js",
     "static/js/248.90c20d33.chunk.js": "/Rent-Car/static/js/248.90c20d33.chunk.js",
     "static/media/car.jpg": "/Rent-Car/static/media/car.40a19c692cd163c605d3.jpg",
-    "static/media/insta.svg": "/Rent-Car/static/media/insta.052023d36b4351fc2e9d1d3bab115cc8.svg",
+    "static/media/insta.svg": "/Rent-Car/static/media/insta.427d3d0f3e7d13f1f5c9a4cd51a35c4a.svg",
     "static/media/sprite.svg": "/Rent-Car/static/media/sprite.0d7bb2a6809071847580ce05088f7b0f.svg",
     "index.html": "/Rent-Car/index.html",
     "static/media/twitter.svg": "/Rent-Car/static/media/twitter.b72d9418c995a5e5f589272d392caa9d.svg",
+    "static/media/arrow.svg": "/Rent-Car/static/media/arrow.c2736d596f9484e71f6c89f2c9e5b3f3.svg",
     "static/media/close.svg": "/Rent-Car/static/media/close.beccf1a21389be635cbc595182eea015.svg",
     "main.9a32734d.css.map": "/Rent-Car/static/css/main.9a32734d.css.map",
-    "main.db597b15.js.map": "/Rent-Car/static/js/main.db597b15.js.map",
+    "main.5774f317.js.map": "/Rent-Car/static/js/main.5774f317.js.map",
     "100.63b4710d.chunk.js.map": "/Rent-Car/static/js/100.63b4710d.chunk.js.map",
-    "795.9d8c760d.chunk.js.map": "/Rent-Car/static/js/795.9d8c760d.chunk.js.map",
+    "916.5ecc817e.chunk.js.map": "/Rent-Car/static/js/916.5ecc817e.chunk.js.map",
     "327.8c201db5.chunk.js.map": "/Rent-Car/static/js/327.8c201db5.chunk.js.map",
     "248.90c20d33.chunk.js.map": "/Rent-Car/static/js/248.90c20d33.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9a32734d.css",
-    "static/js/main.db597b15.js"
+    "static/js/main.5774f317.js"
   ]
 }
