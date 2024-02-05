@@ -5,7 +5,6 @@ import {
   fetchCarsThunk,
   fetchLoadMoreCarsThunk,
 } from '../../redux/cars/carsOperation';
-import { selectIsError, selectIsLoading } from '../../redux/cars/carsSelectors';
 import CarsList from 'components/CarsList';
 import { LIMIT_PER_PAGE } from '../../constants/constants';
 import Loader from 'components/Loader';
@@ -15,6 +14,7 @@ import { StyledCatalogPage } from './Catalog.styled';
 import ServiceMessage from 'components/ServiceMessage';
 import ErrorMessage from 'components/ServiceMessage/ErrorMessage';
 import { clearFilter } from '../../redux/filters/filterSlice';
+import { selectIsError, selectIsLoading } from '../../redux/cars/carsSelectors';
 
 const Catalog = () => {
   const isLoading = useSelector(selectIsLoading);
