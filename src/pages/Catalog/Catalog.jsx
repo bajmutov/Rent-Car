@@ -5,10 +5,7 @@ import {
   fetchCarsThunk,
   fetchLoadMoreCarsThunk,
 } from '../../redux/cars/carsOperation';
-import {
-    selectIsError,
-  selectIsLoading,
-} from '../../redux/cars/carsSelectors';
+import { selectIsError, selectIsLoading } from '../../redux/cars/carsSelectors';
 import CarsList from 'components/CarsList';
 import { LIMIT_PER_PAGE } from '../../constants/constants';
 import Loader from 'components/Loader';
@@ -22,7 +19,6 @@ import { clearFilter } from '../../redux/filters/filterSlice';
 const Catalog = () => {
   const isLoading = useSelector(selectIsLoading);
   const isError = useSelector(selectIsError);
-  // const allCars = useSelector(selectAllCars);
   const [currentPage, setCurrentPage] = useState(2);
   const visibleCars = useSelector(selectVisibleCars);
   const dispatch = useDispatch();
@@ -40,8 +36,7 @@ const Catalog = () => {
     setCurrentPage(currentPage + 1);
   };
 
-  const isShowButton =
-    visibleCars?.length && !(visibleCars.length % LIMIT_PER_PAGE);
+  const isShowButton = !isLoading && !(visibleCars.length % LIMIT_PER_PAGE);
 
   return (
     <StyledCatalogPage>
