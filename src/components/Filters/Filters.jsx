@@ -17,7 +17,9 @@ import {
   FilterFormInputTo,
   FilterButton,
   FormWrripper,
+  SelectArrow,
 } from './Filters.styled.jsx';
+import Icon from 'components/Icon/index.js';
 
 export const Filters = () => {
   const isLoading = useSelector(selectIsLoading);
@@ -59,9 +61,7 @@ export const Filters = () => {
                 </option>
               ))}
             </FilterFormSelect>
-            <FilterFormArrowIcon>
-              <use xlinkHref="/sprite.svg#icon-chevron-down"></use>
-            </FilterFormArrowIcon>
+            <SelectArrow />
           </FilterFormCustomSelect>
         </FilterFormItemWrapper>
         <FilterFormItemWrapper>
@@ -82,9 +82,7 @@ export const Filters = () => {
                 <option key={price}>{price}</option>
               ))}
             </FilterFormSelect>
-            <FilterFormArrowIcon>
-              <use xlinkHref="/sprite.svg#icon-chevron-down"></use>
-            </FilterFormArrowIcon>
+            <SelectArrow />
           </FilterFormCustomSelect>
         </FilterFormItemWrapper>
         <FilterFormItemWrapper>

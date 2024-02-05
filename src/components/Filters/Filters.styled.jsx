@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { StyledInput } from './Input/Input.styled';
+import { ReactComponent as IconArrow } from '../../images/arrow.svg';
 
 export const FormWrripper = styled.div`
   display: flex;
@@ -59,14 +60,21 @@ export const FilterFormSelect = styled.select`
   }
 `;
 
-export const FilterFormArrowIcon = styled.svg`
-  height: 20px;
-  width: 20px;
+export const SelectArrow = styled(IconArrow)`
+  fill: #03a9f4;
+  transition: var(--transition);
+  height: 24px;
+  width: 24px;
   position: absolute;
   top: 50%;
   right: 10px;
   transform: translateY(-50%);
   pointer-events: none;
+
+  &:hover,
+  &:focus {
+    fill: var(--light-blue-color);
+  }
 `;
 
 export const FilterFormMileageInput = styled.div`
