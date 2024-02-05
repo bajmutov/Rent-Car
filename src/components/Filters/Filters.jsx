@@ -10,7 +10,6 @@ import {
   FilterFormItemWrapper,
   FilterFormLabel,
   FilterFormSelect,
-  FilterFormArrowIcon,
   FilterFormCustomSelect,
   FilterFormMileageInput,
   FilterFormInputFrom,
@@ -19,7 +18,6 @@ import {
   FormWrripper,
   SelectArrow,
 } from './Filters.styled.jsx';
-import Icon from 'components/Icon/index.js';
 
 export const Filters = () => {
   const isLoading = useSelector(selectIsLoading);
