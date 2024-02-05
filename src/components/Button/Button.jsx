@@ -7,16 +7,11 @@ export default function Button({
   disabled,
   onClick,
 }) {
-  const handleClick = () => {
-    document.activeElement.blur();
-    onClick?.();
-  };
-
   return (
     <StylesButton
       paddingY={paddingY}
       paddingX={paddingX}
-      onClick={handleClick}
+      onClick={onClick}
       disabled={disabled}
     >
       {children}

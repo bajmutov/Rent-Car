@@ -50,7 +50,9 @@ const Catalog = () => {
             <CarsList cars={visibleCars} />
           ) : (
             !isLoading && (
-              <ServiceMessage message="No cars on your request. Change filter settings" />
+              <ServiceMessage
+                message={'No cars on your request. Change filter settings'}
+              />
             )
           )}
           {isShowButton && (

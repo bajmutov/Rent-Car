@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ReactComponent as IconTwitter } from '../../images/twitter.svg';
 
 export const StyledFooter = styled.footer`
   position: absolute;
@@ -37,4 +38,16 @@ export const StyledFooterMetaLink = styled.a`
 export const StyledFooterMediaContainer = styled.ul`
   display: flex;
   gap: 8px;
+`;
+
+export const Twitter = styled(IconTwitter)`
+  width: 48px;
+  height: 48px;
+  fill: #03a9f4;
+  transition: var(--transition);
+
+  &:hover,
+  &:focus {
+    fill: var(--light-blue-color);
+  }
 `;

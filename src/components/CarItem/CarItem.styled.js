@@ -17,7 +17,7 @@ export const HeartButton = styled.button`
   background-color: transparent;
   border: none;
 
-  transition: transform var(--transition);
+  transition: var(--transition);
 
   &:hover {
     transform: scale(1.3);
