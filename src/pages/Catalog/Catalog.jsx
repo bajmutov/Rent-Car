@@ -14,11 +14,11 @@ import { StyledCatalogPage } from './Catalog.styled';
 import ServiceMessage from 'components/ServiceMessage';
 import ErrorMessage from 'components/ServiceMessage/ErrorMessage';
 import { clearFilter } from '../../redux/filters/filterSlice';
-import { selectIsError, selectIsLoading } from '../../redux/cars/carsSelectors';
+import { carsSelectors } from '../../redux/cars';
 
 const Catalog = () => {
-  const isLoading = useSelector(selectIsLoading);
-  const isError = useSelector(selectIsError);
+  const isLoading = useSelector(carsSelectors.selectIsLoading);
+  const isError = useSelector(carsSelectors.selectIsError);
   const [currentPage, setCurrentPage] = useState(2);
   const visibleCars = useSelector(selectVisibleCars);
   const dispatch = useDispatch();
